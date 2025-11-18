@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #374151;
+}
+
+/* Custom styles for community page */
+.community-gradient {
+  background: linear-gradient(135deg, #ec4899, #be185d);
+}
+
+.community-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.community-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Additional community-specific styles */
+.post-animation {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.login-prompt {
+  background: linear-gradient(135deg, #fdf2f8, #fce7f3);
+  border: 1px solid #f3e8ff;
+}
+
+.community-button {
+  background: linear-gradient(135deg, #ec4899, #be185d);
+  transition: all 0.2s ease;
+}
+
+.community-button:hover {
+  background: linear-gradient(135deg, #be185d, #9d174d);
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .lg\:col-span-1 {
+    display: none;
+  }
+  .lg\:col-span-2 {
+    grid-column: span 1;
+  }
+}

@@ -1,0 +1,66 @@
+# Sensitive Configuration Files
+config.php
+sms_config.php
+database_config.php
+api_config.php
+.env
+.env.local
+.env.production
+
+# Database backups
+*.sql
+*.db
+*.sqlite
+*.sqlite3
+
+# Log files
+*.log
+error.log
+access.log
+php_errors.log
+
+# Temporary files
+*.tmp
+*.temp
+temp/
+tmp/
+
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# PHP specific
+vendor/
+composer.phar
+composer.lock
+
+# Node.js (if using any build tools)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Backup files
+*.bak
+*.backup
+backup/
+
+
+# Cache directories
+cache/
+*.cache
+
+# Session files
+sessions/

@@ -1,0 +1,235 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MaatriSetu - Sign Up</title> <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+</head>
+
+<body class="bg-pink-100 text-gray-800">
+    <header class="bg-white shadow py-4 mb-6">
+    <div class="container mx-auto flex items-center justify-between px-4">
+      <div class="flex items-center gap-2">
+        <img src="logo.jpeg" alt="MaatriSetu Logo" class="h-10 w-auto" />
+        <span class="text-xl font-bold text-pink-600">MaatriSetu</span>
+      </div>
+      <nav>
+        <ul class="flex gap-6 text-base font-medium">
+          <li><a href="index.php" class="hover:text-pink-600">Home</a></li>
+          <li><a href="community.php" class="hover:text-pink-600">Community</a></li>
+          <li><a href="guidance.php" class="hover:text-pink-600">Guidance</a></li>
+          <li><a href="schemes.php" class="hover:text-pink-600">Schemes</a></li>
+          <li><a href="reminders.php" class="hover:text-pink-600">Reminders</a></li>
+          <li><a href="f-a-q.html" class="hover:text-pink-600">FAQ</a></li>
+          <li><a href="login.html" class="hover:text-pink-600">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <main class="max-w-lg mx-auto p-6 bg-white shadow rounded-xl mb-8">
+        <!-- Message Display Area -->
+        <div id="messageArea" class="hidden mb-4 p-3 rounded-lg bg-blue-100 border border-blue-300">
+            <p id="messageText" class="text-sm font-medium text-blue-800"></p>
+        </div>
+        
+        <h2 id="main-heading" class="text-2xl font-semibold mb-4 text-pink-600">Sign Up</h2> <h2 id="profile-heading" class="text-2xl font-semibold mb-4 text-pink-600 hidden">Complete Your Profile</h2> <form id="detailsForm" action="save_details.php" method="POST" class="space-y-4">
+            
+            <div id="phone-section"> <label for="contactNumber" class="block font-medium mb-1">Contact Number</label>
+                <div class="flex gap-2">
+                    <input type="tel" id="contactNumber" name="contactNumber" required class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                    <button type="button" id="sendOtpBtn" class="px-4 py-2 bg-pink-500 text-white rounded hover:bg-pink-600 whitespace-nowrap">Send OTP</button>
+                </div>
+            </div>
+            <div id="otpSection" class="hidden">
+                <label for="otp" class="block font-medium mb-1">Enter OTP</label>
+                <input type="text" id="otp" name="otp" class="w-full border rounded px-3 py-2 focus:outline-pink-500" placeholder="Enter 6-digit code" />
+                <small id="otpStatus" class="text-gray-500"></small>
+            </div>
+
+            <div id="profile-fields" class="space-y-4 hidden"> <div>
+                    <label for="fullName" class="block font-medium mb-1">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" required class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                </div>
+                <div>
+                    <label for="age" class="block font-medium mb-1">Age</label>
+                    <input type="number" id="age" name="age" min="15" max="50" required class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                </div>
+                <div>
+                    <label for="address" class="block font-medium mb-1">Address</label>
+                    <textarea id="address" name="address" rows="2" required placeholder="Enter full residential address" class="w-full border rounded px-3 py-2 focus:outline-pink-500"></textarea>
+                </div>
+                <div>
+                    <label for="pregnancyStage" class="block font-medium mb-1">Pregnancy/Postpartum Stage</label>
+                    <select id="pregnancyStage" name="pregnancyStage" required class="w-full border rounded px-3 py-2 focus:outline-pink-500">
+                        <option value="">Select Stage</option>
+                        <option value="pregnant">Pregnant</option>
+                        <option value="postpartum">Postpartum</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="weeksPregnant" class="block font-medium mb-1">Weeks of Pregnancy (if applicable)</label>
+                    <input type="number" id="weeksPregnant" name="weeksPregnant" min="1" max="42" class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                </div>
+                <div>
+                    <label for="languagePref" class="block font-medium mb-1">Preferred Language</label>
+                    <select id="languagePref" name="languagePref" required class="w-full border rounded px-3 py-2 focus:outline-pink-500">
+                        <option value="">Select Language</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="english">English</option>
+                        <option value="regional">Regional Language</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="familyIncome" class="block font-medium mb-1">Family Income (per month in ₹)</label>
+                    <input type="number" id="familyIncome" name="familyIncome" min="0" required placeholder="Enter approximate monthly income" class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                </div>
+                <div>
+                    <label for="healthConditions" class="block font-medium mb-1">Health Conditions / Complications</label>
+                    <textarea id="healthConditions" name="healthConditions" placeholder="Describe health conditions or complications" class="w-full border rounded px-3 py-2 focus:outline-pink-500"></textarea>
+                </div>
+                <div>
+                    <label class="block font-medium mb-1">Have you had any miscarriages?</label>
+                    <div class="flex gap-6 mb-1">
+                        <label><input type="radio" name="miscarriage" value="yes" /> Yes</label>
+                        <label><input type="radio" name="miscarriage" value="no" /> No</label>
+                    </div>
+                    <input type="number" id="previousMiscarriages" name="previousMiscarriages" min="0" max="10" placeholder="Number of Previous Miscarriages (if any)" class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                </div>
+                <fieldset class="border border-gray-300 rounded p-4">
+                    <legend class="text-base font-semibold text-pink-600">Support Network</legend>
+                    <div class="mt-2">
+                        <label for="relativeName" class="block font-medium mb-1">Relative's Name</label>
+                        <input type="text" id="relativeName" name="relativeName" class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                    </div>
+                    <div>
+                        <label for="relativeRelation" class="block font-medium mb-1">Relation with Relative</label>
+                        <input type="text" id="relativeRelation" name="relativeRelation" class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                    </div>
+                    <div>
+                        <label for="relativePhone" class="block font-medium mb-1">Relative's Phone Number</label>
+                        <input type="tel" id="relativePhone" name="relativePhone" class="w-full border rounded px-3 py-2 focus:outline-pink-500" />
+                    </div>
+                </fieldset>
+
+                <button type="submit" id="saveDetailsBtn" class="w-full mt-4 py-2 bg-pink-600 text-white font-bold rounded hover:bg-pink-700 transition disabled:bg-gray-400" disabled>Save Details</button>
+            </div> </form> 
+    </main>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Get all elements
+        const sendOtpBtn = document.getElementById('sendOtpBtn');
+        const otpSection = document.getElementById('otpSection');
+        const contactNumberInput = document.getElementById('contactNumber');
+        const otpInput = document.getElementById('otp');
+        const saveDetailsBtn = document.getElementById('saveDetailsBtn');
+        const otpStatus = document.getElementById('otpStatus');
+        const detailsForm = document.getElementById('detailsForm');
+
+        // Get NEW elements for 2-step flow
+        const mainHeading = document.getElementById('main-heading');
+        const profileHeading = document.getElementById('profile-heading');
+        const phoneSection = document.getElementById('phone-section');
+        const profileFields = document.getElementById('profile-fields');
+
+        if (sendOtpBtn) {
+            sendOtpBtn.addEventListener('click', async () => {
+                const phone = contactNumberInput.value;
+                if (phone.length < 10) {
+                    alert('Please enter a valid 10-digit phone number.');
+                    return;
+                }
+                sendOtpBtn.disabled = true;
+                sendOtpBtn.textContent = 'Sending...';
+                try {
+                    // This is your simulated send_otp.php call
+                    // In a real app, this fetch call is correct
+                    const response = await fetch('send_otp.php', { 
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ phone: phone })
+                    });
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        otpSection.classList.remove('hidden');
+                        otpStatus.textContent = 'OTP has been sent.';
+
+                    } else {
+                        throw new Error(result.message || 'Failed to send OTP.');
+                    }
+                } catch (error) {
+                    otpStatus.textContent = error.message;
+                    otpStatus.style.color = 'red';
+                    sendOtpBtn.disabled = false;
+                    sendOtpBtn.textContent = 'Send OTP';
+                }
+            });
+        }
+
+        if (otpInput) {
+            otpInput.addEventListener('input', async () => {
+                const otp = otpInput.value;
+                const phone = contactNumberInput.value;
+                if (otp.length === 6) {
+                    try {
+                        // This is your verify_otp.php call
+                        const response = await fetch('verify_otp.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({ phone: phone, otp: otp })
+                        });
+                        const result = await response.json();
+                        
+                        if (result.success) {
+                            otpStatus.textContent = 'Phone number verified!';
+                            otpStatus.style.color = 'green';
+                            
+                            // Check if user profile is already complete
+                            if (result.profile_complete) {
+                                // User exists and profile is complete - redirect to dashboard/home
+                                otpStatus.textContent = 'Welcome back! Redirecting...';
+                                setTimeout(() => {
+                                    window.location.href = 'index.php'; // or dashboard.php
+                                }, 1500);
+                            } else {
+                                // New user or incomplete profile - show profile form
+                                saveDetailsBtn.disabled = false; // Enable the submit button
+
+                                // --- LOGIC FOR 2-STEP FLOW ---
+                                // 1. Hide Step 1 elements
+                                mainHeading.classList.add('hidden');
+                                phoneSection.classList.add('hidden');
+                                otpSection.classList.add('hidden');
+
+                                // 2. Show Step 2 elements
+                                profileHeading.classList.remove('hidden');
+                                profileFields.classList.remove('hidden');
+                                // The saveDetailsBtn is inside profileFields, so it will appear
+                            }
+                            
+                        } else {
+                            otpStatus.textContent = 'Invalid OTP. Please try again.';
+                            otpStatus.style.color = 'red';
+                        }
+                    } catch (error) {
+                        otpStatus.textContent = 'Verification failed. Please try again.';
+                        otpStatus.style.color = 'red';
+                    }
+                }
+            });
+        }
+        
+        if (detailsForm) {
+            detailsForm.addEventListener('submit', () => {
+                // This is still needed so the disabled contactNumber
+                // value is included in the form submission.
+                contactNumberInput.disabled = false; 
+            });
+        }
+    });
+    </script>
+</body>
+</html>
